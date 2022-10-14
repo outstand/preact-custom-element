@@ -76,6 +76,9 @@ function connectedCallback() {
 	this.dispatchEvent(event);
 	const context = event.detail.context;
 
+	if (!this._props) this._props = {};
+	this._props.domRoot = this;
+
 	this._vdom = h(
 		ContextProvider,
 		{ ...this._props, context },
